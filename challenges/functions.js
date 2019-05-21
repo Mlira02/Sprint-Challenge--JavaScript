@@ -52,3 +52,10 @@ function myFunction() {
   nestedFunction();
 }
 myFunction();
+
+
+
+
+
+
+const querySelect = querySelectAll ('')

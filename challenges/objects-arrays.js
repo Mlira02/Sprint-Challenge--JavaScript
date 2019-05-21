@@ -52,7 +52,7 @@ console.log(dinosaur1.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log(dinosaur1.roar);
+console.log(dinosaur1.roar());
 
 
 // ==== Arrays ====
@@ -96,12 +96,8 @@ console.log(contactInfo);
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
 for (let i = 0; i < graduates.length; i++) {
-  if(graduates.indexOf("uni")) {
+  if(graduates[i].university.includes("Uni"))
     uni.push(graduates[i]);
-  }
-  else {
-    false;
-  }
 }
 console.log(uni);
 
@@ -127,9 +123,10 @@ zooAnimals = [{"animal_name":"Jackal, asiatic","population":5,"scientific_name":
 The zoo wants to display both the scientific name and the animal name in front of the habitats.  Return an array with only the animal and scientific names in it.  The individual values in the array should look like this "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const animalNames = zooAnimals.forEach((name) => {
-  console.log (name.animal_name + name.scientific_name)
-});
+const animalNames = []
+zooAnimals.forEach(name => 
+ animalNames.push(`name:${name.animal_name} scientific:${name.scientific_name}`)
+);
 
 console.log (animalNames);
 /* Request 2: .map()    
@@ -159,7 +156,7 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = zooAnimals.reduce((total, population) =>{
+const populationTotal = zooAnimals.reduce((total , population) =>{
   return total += population.population;
 }, 0)
 
